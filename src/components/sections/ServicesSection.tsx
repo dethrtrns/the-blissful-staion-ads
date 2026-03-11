@@ -1,20 +1,23 @@
 import React from 'react';
 
 const services = [
-  { icon: 'fa-brain', title: 'Anxiety & Depression', description: 'Evidence-based therapy for managing anxiety, overthinking, and depressive symptoms.' },
-  { icon: 'fa-heart-broken', title: 'Relationship Counseling', description: 'Helping couples and individuals navigate relationship problems, conflicts, and family dynamics.' },
-  { icon: 'fa-briefcase', title: 'Stress & Work Pressure', description: 'Effective strategies for managing occupational stress, burnout, and anger issues.' },
-  { icon: 'fa-child', title: 'Child & Adolescent Care', description: 'Specialized psychological assessment and therapy for children and teenagers.' },
-  { icon: 'fa-seedling', title: 'Self-Esteem & Sleep', description: 'Overcome low self-esteem and sleep disturbances to rekindle your inner peace.' },
-  { icon: 'fa-laptop-medical', title: 'Online Consultations', description: 'Access high-quality mental healthcare from the comfort and privacy of your home.' },
+  { icon: 'fa-cloud-rain',      title: 'Depression',       description: 'Compassionate, evidence-based care to help you rediscover joy and meaning in everyday life.' },
+  { icon: 'fa-brain',           title: 'Anxiety',          description: 'Practical tools and therapy to manage anxious thoughts, panic, and overthinking effectively.' },
+  { icon: 'fa-child',           title: 'Child Therapy',    description: 'Specialized psychological support for children and adolescents navigating emotional and behavioral challenges.' },
+  { icon: 'fa-bolt',            title: 'Trauma',           description: 'Trauma-informed therapy to help you process difficult experiences and reclaim a sense of safety.' },
+  { icon: 'fa-comments',        title: 'CBT',              description: 'Cognitive Behavioral Therapy to identify and reshape unhelpful thought patterns and behaviors.' },
+  { icon: 'fa-heart',           title: 'Relationships',    description: 'Helping individuals and couples build healthier communication, boundaries, and connection.' },
+  { icon: 'fa-briefcase',       title: 'Stress',           description: 'Effective strategies to manage work pressure, burnout, and everyday life stressors.' },
+  { icon: 'fa-ban',             title: 'Addiction',        description: 'Supportive, non-judgmental therapy for breaking cycles of addiction and rebuilding healthy habits.' },
+  { icon: 'fa-spa',             title: 'Mindfulness',      description: 'Mindfulness-based practices to cultivate present-moment awareness, calm, and emotional balance.' },
 ];
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-[var(--bg-color)] py-[100px]">
-      <div className="container mx-auto px-8 max-w-[1200px]">
-        <div className="text-center max-w-[600px] mx-auto mb-16">
-          <h2 className="text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Our Specialized Care</h2>
+    <section id="services" className="bg-[var(--bg-color)] py-[60px] md:py-[100px]">
+      <div className="container mx-auto px-6 md:px-8 max-w-[1200px]">
+        <div className="text-center max-w-[600px] mx-auto mb-10 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Our Specialized Care</h2>
           <p className="text-[var(--text-light)]">We offer a wide range of psychological services tailored to your unique needs, whether in-person or online.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -12,10 +12,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-[100px] container mx-auto px-8 max-w-[1200px]">
-      <div className="bg-white rounded-[40px] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-2">
-        <div className="p-10 md:p-20">
-          <h2 className="text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Take Control of Your Wellbeing</h2>
+    <section id="contact" className="py-[60px] md:py-[100px] container mx-auto px-6 md:px-8 max-w-[1200px]">
+      <div className="bg-white rounded-[30px] md:rounded-[40px] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-2">
+        <div className="p-8 md:p-12 lg:p-20">
+          <h2 className="text-3xl md:text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Take Control of Your Wellbeing</h2>
           <p className="text-[var(--text-light)] mb-8">We are here to listen and help you navigate life's challenges. Book your first session today and start your journey towards bliss.</p>
           <div className="mt-8 space-y-4 text-[var(--text-dark)]">
             <p><strong className="font-semibold"><i className="fas fa-map-marker-alt text-[var(--primary)] w-6"></i> Address:</strong> Plot No. 19a, Kh. No. 84, Chak Malhauri, Chinhat, Lucknow, Uttar Pradesh 226028</p>
@@ -24,7 +24,7 @@ export function ContactSection() {
             <p><strong className="font-semibold"><i className="fas fa-globe text-[var(--primary)] w-6"></i> Website:</strong> theblissfulstation.in</p>
           </div>
         </div>
-        <div className="p-10 md:p-20 bg-[var(--bg-color)]">
+        <div className="p-8 md:p-12 lg:p-20 bg-[var(--bg-color)]">
           <form id="contactForm" onSubmit={handleSubmit} className="space-y-6">
             <div className="form-group">
               <label htmlFor="name" className="block mb-2 font-medium text-[var(--text-dark)]">Full Name</label>

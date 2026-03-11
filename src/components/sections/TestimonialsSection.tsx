@@ -1,39 +1,126 @@
-import React from 'react';
+'use client';
+
+import React, { useRef, useEffect } from 'react';
 
 const testimonials = [
-  {
-    rating: '⭐⭐⭐⭐⭐',
-    text: '"The counseling sessions helped me navigate through a very difficult phase of my life. The environment is extremely supportive and non-judgmental."',
-    name: 'Anjali R.',
-    location: 'Lucknow'
-  },
-  {
-    rating: '⭐⭐⭐⭐⭐',
-    text: '"Professional, ethical, and deeply empathetic. The Blissful Station is truly a sanctuary for mental wellness. Highly recommend their services."',
-    name: 'Sameer K.',
-    location: 'Online Client'
-  }
+  { text: '"Very good experience. I think this is the first place in Lucknow where I found genuinely ethical, professional, and compassionate therapy. Highly recommended."', name: 'Pooja Singh' },
+  { text: '"Absolutely helpful... Positive vibes, comfort zone, easy to talk and express yourself. There is a HOPE even when your brain tells you there isn\'t."', name: 'Manash Gautam' },
+  { text: '"Highly recommend the therapist and this place. It has a very comfy ambience and perfect for mental well-being journey."', name: 'Safal Srivastava' },
+  { text: '"Good experience. Therapy is very scary for a first timer but they made me feel very comfortable. It\'s difficult to find good therapists in Lucknow."', name: 'Ramsha Aijaz' },
+  { text: '"The Blissful Station has perfect ambience and highly qualified professionals. On the top of my recommendations for anyone who needs ethical mental health services!"', name: 'Samikshaa Tewari' },
+  { text: '"The Clinical Psychologist is very understanding and supportive. They listen patiently and always guide in the right direction. Talking to them makes me feel lighter and more motivated."', name: 'Aditya Chand' },
+  { text: '"The clinic provides one of the best mental health services in the city, with the utmost ethical practice by the Clinical Psychologist."', name: 'Payal Sharma' },
+  { text: '"An amazing space with a peaceful environment and skilled professionals. The Blissful Station truly stands out for its ethical approach to mental health services."', name: 'Abhay Kumar' },
+  { text: '"Highlights positive experiences — knowledgeable, compassionate doctors, friendly staff, hygienic facility, and effective treatment. Highly recommend!"', name: 'Bishwajit Lal Sen' },
+  { text: '"I had a wonderful experience. The clinic is very clean and well-organized. The psychologist took the time to listen to my concerns. Highly recommend!"', name: 'Archana Yadav' },
+  { text: '"Great place, highly qualified therapists!"', name: 'Khushi Tandon' },
 ];
 
-export function TestimonialsSection() {
+const doubled = [...testimonials, ...testimonials];
+
+function ReviewCard({ t }: { t: typeof testimonials[0] }) {
   return (
-    <section id="testimonials" className="bg-white py-[100px] container mx-auto px-8 max-w-[1200px]">
-      <div className="text-center max-w-[600px] mx-auto mb-16">
-        <h2 className="text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">What Our Clients Say</h2>
-        <p className="text-[var(--text-light)]">Real stories of transformation and healing from those we've had the privilege to support.</p>
+    <div className="shrink-0 bg-[var(--bg-color)] p-7 rounded-[24px] flex flex-col gap-4 border border-[rgba(33,77,62,0.05)] shadow-[0_5px_30px_rgba(0,0,0,0.04)]"
+      style={{ width: '300px' }}>
+      <div className="text-yellow-400 text-lg tracking-widest">★★★★★</div>
+      <p className="italic text-[0.93rem] leading-relaxed text-[var(--text-dark)] flex-1">{t.text}</p>
+      <div className="border-t border-[rgba(33,77,62,0.08)] pt-4 flex items-center gap-3">
+        <div className="w-9 h-9 rounded-full bg-[var(--secondary)] flex items-center justify-center text-[var(--primary)] font-bold font-cormorant text-lg flex-shrink-0">
+          {t.name[0]}
+        </div>
+        <div>
+          <strong className="block font-cormorant text-[var(--primary)] text-base font-semibold">{t.name}</strong>
+          <span className="text-[0.78rem] text-[var(--text-light)]">Google Review</span>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-        {testimonials.map((testimonial, idx) => (
-          <div key={idx} className="bg-[var(--bg-color)] p-12 rounded-[30px] relative transition-all duration-400 hover:bg-white hover:shadow-[0_10px_40px_rgba(33,77,62,0.08)]">
-            <div className="mb-6 text-[0.9rem] tracking-[2px]">{testimonial.rating}</div>
-            <p className="italic text-lg leading-relaxed mb-8 text-[var(--text-dark)]">{testimonial.text}</p>
-            <div className="flex flex-col">
-              <strong className="font-cormorant text-xl text-[var(--primary)]">{testimonial.name}</strong>
-              <span className="text-[0.9rem] text-[var(--text-light)]">{testimonial.location}</span>
-            </div>
-          </div>
-        ))}
+    </div>
+  );
+}
+
+export function TestimonialsSection() {
+  const mobileRef = useRef<HTMLDivElement>(null);
+  const isTouching = useRef(false);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const el = mobileRef.current;
+    if (!el) return;
+
+    const step = 0.5; // px per tick
+
+    const interval = setInterval(() => {
+      if (!isTouching.current && el) {
+        el.scrollLeft += step;
+        // Seamless loop: reset at halfway point
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        }
+      }
+    }, 16); // ~60fps
+
+    return () => {
+      clearInterval(interval);
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    };
+  }, []);
+
+  const handleTouchStart = () => {
+    isTouching.current = true;
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+  };
+
+  const handleTouchEnd = () => {
+    // Resume auto-scroll after 2s of inactivity
+    resumeTimer.current = setTimeout(() => {
+      isTouching.current = false;
+    }, 2000);
+  };
+
+  return (
+    <section id="testimonials" className="bg-white py-[60px] md:py-[100px] overflow-hidden">
+      {/* Header */}
+      <div className="text-center max-w-[600px] mx-auto mb-10 md:mb-16 px-6 md:px-8">
+        <h2 className="text-3xl md:text-4xl font-cormorant font-semibold text-[var(--primary)] mb-3 md:mb-4">
+          What Our Clients Say
+        </h2>
+        <p className="text-[var(--text-light)]">
+          Real stories of transformation and healing — all from verified Google reviews.
+        </p>
+        <div className="flex items-center justify-center gap-2 mt-4">
+          <span className="text-yellow-400 text-xl">★★★★★</span>
+          <span className="font-semibold text-[var(--primary)]">5.0</span>
+          <span className="text-[var(--text-light)] text-sm">· 11 Google Reviews</span>
+        </div>
       </div>
+
+      {/* ── MOBILE: JS auto-scroll + manual swipe ─────────────────── */}
+      <div
+        ref={mobileRef}
+        className="md:hidden flex gap-5 px-6 overflow-x-auto pb-3"
+        style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {doubled.map((t, idx) => <ReviewCard key={idx} t={t} />)}
+      </div>
+
+      {/* ── DESKTOP: CSS marquee ───────────────────────────────────── */}
+      <div
+        className="hidden md:flex gap-6 w-max"
+        style={{ animation: 'marquee 40s linear infinite' }}
+        onMouseEnter={e => (e.currentTarget.style.animationPlayState = 'paused')}
+        onMouseLeave={e => (e.currentTarget.style.animationPlayState = 'running')}
+      >
+        {doubled.map((t, idx) => <ReviewCard key={idx} t={t} />)}
+      </div>
+
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .md\\:hidden::-webkit-scrollbar { display: none; }
+      `}</style>
     </section>
   );
 }

@@ -9,9 +9,9 @@ const features = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="bg-white py-[100px] container mx-auto px-8 max-w-[1200px]">
-      <div className="text-center max-w-[600px] mx-auto mb-16">
-        <h2 className="text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Why The Blissful Station?</h2>
+    <section className="bg-white py-[60px] md:py-[100px] container mx-auto px-6 md:px-8 max-w-[1200px]">
+      <div className="text-center max-w-[600px] mx-auto mb-10 md:mb-16">
+        <h2 className="text-3xl md:text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Why The Blissful Station?</h2>
         <p className="text-[var(--text-light)]">We are dedicated to providing the highest quality of mental healthcare with an emphasis on your well-being.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
