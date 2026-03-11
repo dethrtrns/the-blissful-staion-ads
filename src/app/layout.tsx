@@ -9,7 +9,7 @@ const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500"
 
 export const metadata: Metadata = {
   title: "The Blissful Station | Expert Psychological Care in Lucknow",
-  description: "Professional therapy by verified clinical psychologists. The Blissful Station offers evidence-based mental healthcare in Lucknow.",
+  description: "Professional therapy by a verified clinical psychologist. The Blissful Station offers evidence-based mental healthcare in Lucknow.",
 };
 
 export default function RootLayout({

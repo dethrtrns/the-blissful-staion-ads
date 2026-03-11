@@ -1,0 +1,32 @@
+import React from 'react';
+
+const services = [
+  { icon: 'fa-brain', title: 'Anxiety & Depression', description: 'Evidence-based therapy for managing anxiety, overthinking, and depressive symptoms.' },
+  { icon: 'fa-heart-broken', title: 'Relationship Counseling', description: 'Helping couples and individuals navigate relationship problems, conflicts, and family dynamics.' },
+  { icon: 'fa-briefcase', title: 'Stress & Work Pressure', description: 'Effective strategies for managing occupational stress, burnout, and anger issues.' },
+  { icon: 'fa-child', title: 'Child & Adolescent Care', description: 'Specialized psychological assessment and therapy for children and teenagers.' },
+  { icon: 'fa-seedling', title: 'Self-Esteem & Sleep', description: 'Overcome low self-esteem and sleep disturbances to rekindle your inner peace.' },
+  { icon: 'fa-laptop-medical', title: 'Online Consultations', description: 'Access high-quality mental healthcare from the comfort and privacy of your home.' },
+];
+
+export function ServicesSection() {
+  return (
+    <section id="services" className="bg-[var(--bg-color)] py-[100px]">
+      <div className="container mx-auto px-8 max-w-[1200px]">
+        <div className="text-center max-w-[600px] mx-auto mb-16">
+          <h2 className="text-4xl font-cormorant font-semibold text-[var(--primary)] mb-4">Our Specialized Care</h2>
+          <p className="text-[var(--text-light)]">We offer a wide range of psychological services tailored to your unique needs, whether in-person or online.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, idx) => (
+            <div key={idx} className="bg-white p-10 rounded-[25px] transition-all duration-400 border border-[rgba(33,77,62,0.05)] shadow-[0_5px_15px_rgba(33,77,62,0.02)] hover:border-[var(--accent)] hover:shadow-[0_10px_40px_rgba(33,77,62,0.08)] hover:-translate-y-2.5 group">
+              <i className={`fas ${service.icon} text-[2.5rem] text-[var(--primary)] mb-6 block transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}></i>
+              <h3 className="font-cormorant font-semibold text-2xl text-[var(--primary)] mb-4">{service.title}</h3>
+              <p className="text-[var(--text-light)]">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
