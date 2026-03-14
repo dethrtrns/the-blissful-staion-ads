@@ -3,6 +3,7 @@ import { Outfit, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-cormorant" });
@@ -39,11 +40,56 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MedicalBusiness",
+              "name": "The Blissful Station",
+              "image": "https://theblissfulstation.in/assets/logo.webp",
+              "@id": "https://theblissfulstation.in",
+              "url": "https://theblissfulstation.in",
+              "telephone": "+919793743769",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Vikalp Khand, Jheel Road, Kathauta Jheel, Gomti Nagar",
+                "addressLocality": "Lucknow",
+                "postalCode": "226010",
+                "addressRegion": "UP",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 26.8667,
+                "longitude": 80.9333
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "10:00",
+                "closes": "20:00"
+              },
+              "sameAs": [
+                "https://www.instagram.com/theblissfulstation/"
+              ]
+            }),
+          }}
+        />
       </head>
       <body className={`${outfit.variable} ${cormorant.variable} antialiased`}>
         <Navbar />
         {children}
         <Footer />
+        <WhatsAppWidget />
       </body>
     </html>
   );
