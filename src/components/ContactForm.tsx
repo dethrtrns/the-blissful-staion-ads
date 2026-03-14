@@ -212,7 +212,7 @@ export function ContactForm() {
         <AlexButton 
           type="submit" 
           size="md" 
-          className="shadow-xl px-10"
+          className="shadow-xl"
           disabled={status === 'submitting'}
         >
           {status === 'submitting' ? 'Processing...' : 'Book My Consultation'}

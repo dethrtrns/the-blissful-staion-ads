@@ -23,17 +23,17 @@ export function AlexButton({
 }: AlexButtonProps) {
   const sizeClasses = {
     sm: {
-      btn: 'py-1.5 pl-1.5 pr-5 gap-2.5 text-sm',
+      btn: 'py-1 pl-1 pr-2 gap-2 text-sm',
       circle: 'w-7 h-7',
       arrow: 'w-3 h-3'
     },
     md: {
-      btn: 'py-2.5 pl-2.5 pr-7 gap-3',
+      btn: 'py-1.5 pl-1.5 pr-2.5 gap-2.5',
       circle: 'w-8 h-8',
       arrow: 'w-3.5 h-3.5'
     },
     lg: {
-      btn: 'py-3 pl-3 pr-10 gap-4',
+      btn: 'py-2 pl-2 pr-3.5 gap-3',
       circle: 'w-10 h-10',
       arrow: 'w-4 h-4'
     }
