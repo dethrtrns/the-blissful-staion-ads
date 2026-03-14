@@ -59,12 +59,31 @@ export function ContactForm() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     setStatus('submitting');
-    setTimeout(() => {
-      setStatus('success');
-      reset();
-    }, 1500);
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        reset();
+      } else {
+        const errorData = await response.json();
+        console.error('Submission error:', errorData);
+        alert('There was an error submitting the form. Please try again later.');
+        setStatus('idle');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('There was an error submitting the form. Please try again later.');
+      setStatus('idle');
+    }
   };
 
   if (status === 'success') {

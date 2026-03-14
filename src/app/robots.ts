@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://theblissfulstation.in/sitemap.xml',
+    sitemap: 'https://theblissfulstation.com/sitemap.xml',
   }
 }

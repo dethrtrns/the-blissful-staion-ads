@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AlexButton } from '@/components/ui/AlexButton';
 import { Phone } from 'lucide-react';
@@ -19,7 +20,7 @@ export function Navbar() {
 
   return (
     <nav className={`flex justify-between items-center py-1 md:py-2.5 absolute top-2 left-1/2 -translate-x-1/2 w-[95%] z-[1000] max-w-[1200px] transition-all duration-400 ease-in-out px-4 md:px-8 mx-auto container ${scrolled ? 'fixed !top-0 !max-w-full !w-full bg-[rgba(255,255,255,0.85)] backdrop-blur-[15px] !py-2 shadow-[0_5px_30px_rgba(0,0,0,0.05)] !rounded-none' : 'bg-white md:bg-transparent md:backdrop-blur-none rounded-[20px]'}`}>
-        <a
+        <Link
             href="/"
             onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className="text-[1.3rem] md:text-[1.6rem] font-cormorant font-bold text-[var(--primary)] flex items-center gap-2 md:gap-3 no-underline cursor-pointer"
@@ -37,7 +38,7 @@ export function Navbar() {
               className="hidden md:block w-[44px] h-[44px] rounded-full object-cover"
             />
             <span className="hidden md:block">The Blissful Station</span>
-        </a>
+        </Link>
         <ul className="hidden lg:flex gap-8 list-none">
             <li><a href="#services" className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">Services</a></li>
             <li><a href="#about" className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">About</a></li>
