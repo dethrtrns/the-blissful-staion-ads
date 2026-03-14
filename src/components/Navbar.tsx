@@ -41,7 +41,6 @@ export function Navbar() {
         </Link>
         <ul className="hidden lg:flex gap-8 list-none">
             <li><a href="#services" className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">Services</a></li>
-            <li><a href="#about" className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">About</a></li>
             <li><a href="#testimonials" className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">Testimonials</a></li>
             <li><a href="#contact" className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">Contact</a></li>
         </ul>

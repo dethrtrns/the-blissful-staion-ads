@@ -23,7 +23,7 @@ export function HeroSection() {
           
           <div>
             <AlexButton href="#contact" size="md" className="shadow-lg hover:shadow-xl">
-              Get Started Today
+              Book Your Session
             </AlexButton>
           </div>
         </div>
