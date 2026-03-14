@@ -8,6 +8,7 @@ interface AlexButtonProps {
   size?: 'sm' | 'md' | 'lg';
   type?: 'button' | 'submit' | 'reset';
   icon?: React.ReactNode;
+  disabled?: boolean;
 }
 
 export function AlexButton({
@@ -17,7 +18,8 @@ export function AlexButton({
   className = '',
   size = 'md',
   type = 'button',
-  icon
+  icon,
+  disabled = false,
 }: AlexButtonProps) {
   const sizeClasses = {
     sm: {
@@ -63,7 +65,12 @@ export function AlexButton({
   }
 
   return (
-    <button type={type} className={baseClasses} onClick={onClick}>
+    <button 
+      type={type} 
+      className={`${baseClasses} ${disabled ? 'opacity-50 cursor-not-allowed grayscale' : ''}`} 
+      onClick={onClick}
+      disabled={disabled}
+    >
       {content}
     </button>
   );

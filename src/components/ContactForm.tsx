@@ -28,7 +28,8 @@ const concerns = [
 ];
 
 export function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -61,6 +62,7 @@ export function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setStatus('submitting');
+    setErrorMessage(null);
     try {
       const response = await fetch('/api/send', {
         method: 'POST',
@@ -74,15 +76,15 @@ export function ContactForm() {
         setStatus('success');
         reset();
       } else {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         console.error('Submission error:', errorData);
-        alert('There was an error submitting the form. Please try again later.');
-        setStatus('idle');
+        setErrorMessage(errorData.error || 'Server error. Please check if RESEND_API_KEY is set in Vercel settings.');
+        setStatus('error');
       }
     } catch (error) {
       console.error('Submission error:', error);
-      alert('There was an error submitting the form. Please try again later.');
-      setStatus('idle');
+      setErrorMessage('Network error. Please try again later.');
+      setStatus('error');
     }
   };
 
@@ -183,11 +185,21 @@ export function ContactForm() {
         </div>
       </div>
       
+      {status === 'error' && (
+        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm mb-4 animate-in fade-in slide-in-from-top-2 duration-200">
+          <p className="font-semibold flex items-center gap-2">
+            <i className="fas fa-exclamation-circle text-red-500"></i>
+            {errorMessage || 'There was an error submitting the form. Please try again later.'}
+          </p>
+        </div>
+      )}
+      
       <div className="pt-4 flex justify-start">
         <AlexButton 
           type="submit" 
           size="md" 
           className="shadow-xl px-10"
+          disabled={status === 'submitting'}
         >
           {status === 'submitting' ? 'Processing...' : 'Book My Consultation'}
         </AlexButton>
