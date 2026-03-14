@@ -40,7 +40,7 @@ export function ContactSection() {
               </div>
               <div>
                 <p className="font-semibold text-xs uppercase tracking-widest text-[var(--primary)] opacity-60 mb-1">Email Us</p>
-                <p className="text-[15px] font-medium">hello@theblissfulstation.com</p>
+                <p className="text-[15px] font-medium">contact@theblissfulstation.in</p>
               </div>
             </div>
           </div>

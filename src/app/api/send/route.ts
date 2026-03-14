@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     // If not verified, you can only send from onboarding@resend.dev to your own email.
     const { data, error } = await resend.emails.send({
       from: 'The Blissful Station <onboarding@resend.dev>',
-      to: ['hello@theblissfulstation.com'],
+      to: ['contact@theblissfulstation.in', 'kinstelsolutions@gmail.com'],
       subject: `New Consultation Request: ${name}`,
       html: `
         <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 10px; overflow: hidden;">
