@@ -125,6 +125,43 @@ export default function ExpertPsychologistPage() {
           </div>
         </div>
 
+        {/* Gallery Section */}
+        <div className="mb-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-cormorant font-medium text-[var(--primary)] mb-4">
+              Our Clinical Setting
+            </h2>
+            <p className="text-[var(--text-light)] max-w-[700px] mx-auto leading-relaxed">
+              We provide a safe, ethical, and calm environment designed to help
+              you feel comfortable during your healing journey.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { src: "/assets/BS-reception.jpg", alt: "Reception area" },
+              { src: "/assets/BS-office.jpg", alt: "Clinical office space" },
+              { src: "/assets/therapy-room-wide.jpg", alt: "Main therapy room" },
+              { src: "/assets/therapy-room-close.jpg", alt: "Therapeutic seating" },
+            ].map((img, idx) => (
+              <div
+                key={idx}
+                className="group relative overflow-hidden rounded-[30px] shadow-md border border-[var(--glass-border)] aspect-[16/10] bg-gray-100">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(33,77,62,0.5)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                  <span className="text-white font-medium text-lg">
+                    {img.alt}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Location & Accessibility */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[var(--primary)] text-white p-10 rounded-[35px] shadow-lg relative overflow-hidden group">

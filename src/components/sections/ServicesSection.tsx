@@ -15,19 +15,19 @@ const services = [
       "Practical tools and therapy to manage anxious thoughts, panic, and overthinking effectively.",
   },
   {
-    icon: "fa-brain",
+    icon: "fa-clipboard-check",
     title: "Psychological Testing",
     description:
       "Comprehensive psychological assessments to understand cognitive abilities, personality traits, and emotional well-being.",
   },
   {
-    icon: "fa-brain",
+    icon: "fa-compass",
     title: "Career Counseling",
     description:
       "Guidance and support to help you make informed decisions about your career path and professional growth.",
   },
   {
-    icon: "fa-brain",
+    icon: "fa-infinity",
     title: "Neurodivergence",
     description:
       "Evidence-based therapy and counseling for neurodivergent individuals including ADHD, Autism Spectrum Disorder, and other neurodevelopmental differences.",
@@ -63,7 +63,7 @@ const services = [
       "Effective strategies to manage work pressure, burnout, and everyday life stressors.",
   },
   {
-    icon: "fa-ban",
+    icon: "fa-link-slash",
     title: "Addiction",
     description:
       "Supportive, non-judgmental therapy for breaking cycles of addiction and rebuilding healthy habits.",

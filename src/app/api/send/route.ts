@@ -13,12 +13,12 @@ export async function POST(req: Request) {
   }
 
   try {
-    const { name, phone, age, concern, email } = await req.json();
+    const { name, phone, age, concern, email, message } = await req.json();
 
     // 1. Send Notification to Clinic
     const clinicEmailPromise = resend.emails.send({
       from: "The Blissful Station Website <inquiry@theblissfulstation.com>",
-      to: ["kinstelsolutions@gmail.com"],
+      to: ["kinstelsolutions@gmail.com", "contact.tbfst@gmail.com"],
       subject: `New Lead: ${name} (${concern})`,
       replyTo: email,
       html: `
@@ -49,6 +49,12 @@ export async function POST(req: Request) {
                 <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Primary Concern:</td>
                 <td style="padding: 10px; border-bottom: 1px solid #eee;">${concern}</td>
               </tr>
+              ${message ? `
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Additional Concerns:</td>
+                <td style="padding: 10px; border-bottom: 1px solid #eee;">${message}</td>
+              </tr>
+              ` : ''}
             </table>
           </div>
           <div style="background-color: #f9f9f9; padding: 15px; text-align: center; font-size: 12px; color: #999;">
@@ -73,6 +79,7 @@ export async function POST(req: Request) {
             <h2 style="color: #214D3E; margin-top: 0;">Hello ${name},</h2>
             <p style="font-size: 16px;">Thank you for reaching out to us. We have received your consultation request regarding <strong>${concern}</strong>.</p>
             <p style="font-size: 16px;">Our team is reviewing your details, and a therapist will contact you within the next <strong>2 to 4 hours</strong> to schedule your initial session.</p>
+           
             <div style="margin: 30px 0; padding: 20px; background-color: #fcfcfc; border-left: 4px solid #B49463;">
               <p style="margin: 0; font-style: italic; color: #555;">"Your healing journey is a marathon, not a sprint. We are honored to walk this path with you."</p>
             </div>
