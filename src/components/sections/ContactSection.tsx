@@ -47,7 +47,7 @@ export function ContactSection() {
                 </p>
                 <a
                   href="tel:+919793743769"
-                  onClick={() => sendGAEvent({ event: 'generate_lead', lead_type: 'phone_call' })}
+                  onClick={() => sendGAEvent({ event: 'phone_call' })}
                   className="text-[18px] font-semibold hover:text-[var(--primary)] transition-colors">
                   97937 43769
                 </a>

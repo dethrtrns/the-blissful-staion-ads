@@ -86,7 +86,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 md:gap-4">
           <AlexButton
             href="tel:+919793743769"
-            onClick={() => sendGAEvent({ event: 'generate_lead', lead_type: 'phone_call' })}
+            onClick={() => sendGAEvent({ event: 'phone_call' })}
             size="sm"
             className="text-[14px] md:text-lg">
             97937 43769
@@ -166,7 +166,7 @@ export function Navbar() {
             </p>
             <AlexButton
               href="tel:+919793743769"
-              onClick={() => sendGAEvent({ event: 'generate_lead', lead_type: 'phone_call' })}
+              onClick={() => sendGAEvent({ event: 'phone_call' })}
               size="sm"
               className="shadow-lg text-base">
               97937 43769

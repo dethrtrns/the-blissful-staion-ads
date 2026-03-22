@@ -76,7 +76,7 @@ export function ContactForm() {
       });
 
       if (response.ok) {
-        sendGAEvent({ event: 'generate_lead', lead_type: 'form_submit' });
+        sendGAEvent({ event: 'form_submit' });
         setStatus('success');
         reset();
       } else {
