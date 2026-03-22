@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { AlexButton } from '@/components/ui/AlexButton';
 import { CheckCircle2, User, Phone as PhoneIcon, Calendar, HelpCircle, ChevronDown, MessageSquare } from 'lucide-react';
-import { sendGAEvent } from '@next/third-parties/google';
+import { trackGAEvent } from "@/utils/analytics";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -76,7 +76,7 @@ export function ContactForm() {
       });
 
       if (response.ok) {
-        sendGAEvent({ event: 'form_submit' });
+        trackGAEvent('form_submit');
         setStatus('success');
         reset();
       } else {
