@@ -38,7 +38,7 @@ export default function ExpertPsychologistPage() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center bg-[#E8F5E9] text-[var(--primary)] text-[12px] font-bold tracking-[1.5px] px-4 py-1.5 rounded-full uppercase mb-6 font-outfit">
+            <div className="inline-flex items-center bg-[#E8F5E9] text-[var(--primary)] text-[12px] font-bold tracking-[1.2px] px-3 py-1 rounded-full uppercase mb-2 font-outfit">
               Founder & Clinical Psychologist
             </div>
             <h1 className="text-4xl md:text-6xl font-cormorant font-medium text-[var(--text-dark)] mb-4 leading-tight">
@@ -186,6 +186,11 @@ export default function ExpertPsychologistPage() {
 
       <div className="container mx-auto px-6 md:px-8 max-w-[1100px]">
         {/* Location & Accessibility */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex items-center bg-[#E8F5E9] text-[var(--primary)] text-[12px] font-bold tracking-[1.5px] px-6 py-2 rounded-full uppercase font-outfit">
+            Therapy Starting at ₹799
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[var(--primary)] text-white p-10 rounded-[35px] shadow-lg relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
@@ -228,6 +233,8 @@ export default function ExpertPsychologistPage() {
             </p>
           </div>
         </div>
+
+
       </div>
     </main>
   );

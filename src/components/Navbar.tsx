@@ -67,13 +67,7 @@ export function Navbar() {
               Our Expert Psychologist
             </Link>
           </li>
-          <li>
-            <Link
-              href="/#testimonials"
-              className="text-decoration-none text-[var(--text-dark)] font-medium transition-all duration-400 hover:text-[var(--primary)]">
-              Testimonials
-            </Link>
-          </li>
+
           <li>
             <Link
               href="/#contact"
@@ -142,14 +136,7 @@ export function Navbar() {
                 Our Expert
               </Link>
             </li>
-            <li>
-              <Link
-                href="/#testimonials"
-                onClick={closeMenu}
-                className="text-2xl font-cormorant font-semibold text-[var(--text-dark)] hover:text-[var(--primary)] transition-colors">
-                Kind Words
-              </Link>
-            </li>
+
             <li>
               <Link
                 href="/#contact"

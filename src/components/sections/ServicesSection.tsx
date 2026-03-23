@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { AlexButton } from "@/components/ui/AlexButton";
 
 const services = [
@@ -77,6 +79,8 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <section
       id="services"
@@ -96,7 +100,9 @@ export function ServicesSection() {
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="bg-white p-10 rounded-[25px] transition-all duration-400 border border-[rgba(33,77,62,0.05)] shadow-[0_5px_15px_rgba(33,77,62,0.02)] hover:border-[var(--accent)] hover:shadow-[0_10px_40px_rgba(33,77,62,0.08)] hover:-translate-y-2.5 group">
+              className={`bg-white p-10 rounded-[25px] transition-all duration-400 border border-[rgba(33,77,62,0.05)] shadow-[0_5px_15px_rgba(33,77,62,0.02)] hover:border-[var(--accent)] hover:shadow-[0_10px_40px_rgba(33,77,62,0.08)] hover:-translate-y-2.5 group ${
+                !isExpanded && idx >= 3 ? "hidden md:block" : "block"
+              }`}>
               <i
                 className={`fas ${service.icon} text-[2.5rem] text-[var(--primary)] mb-6 block transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}></i>
               <h3 className="font-cormorant font-semibold text-2xl text-[var(--primary)] mb-4">
@@ -106,7 +112,16 @@ export function ServicesSection() {
             </div>
           ))}
         </div>
-        <div className="mt-16 flex justify-center">
+
+        <div className="mt-8 flex justify-center md:hidden">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-[var(--primary)] font-medium border-b border-[var(--primary)] pb-0.5 hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
+            {isExpanded ? "Show Less" : "View All Services"}
+          </button>
+        </div>
+
+        <div className="mt-12 md:mt-16 flex justify-center">
           <AlexButton
             href="#contact"
             size="md">

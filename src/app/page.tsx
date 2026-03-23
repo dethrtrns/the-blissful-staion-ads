@@ -11,10 +11,10 @@ export default function Home() {
     <>
       <ActiveSectionObserver />
       <HeroSection />
-      <WhyChooseUsSection />
-      <ServicesSection />
-      <StatsSection />
       <TestimonialsSection />
+      <ServicesSection />
+      <WhyChooseUsSection />
+      <StatsSection />
       <ContactSection />
     </>
   );
