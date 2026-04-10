@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Blissful Station | Trusted Therapist in Lucknow",
     description: "Expert, ethical clinical counseling in Lucknow. Dedicated to your mental wellbeing.",
-    url: "https://theblissfulstation.com",
+    url: "https://www.theblissfulstation.com",
     siteName: "The Blissful Station",
     locale: "en_US",
     type: "website",
@@ -50,9 +50,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "The Blissful Station",
-              "image": "https://theblissfulstation.com/assets/logo.webp",
-              "@id": "https://theblissfulstation.com",
-              "url": "https://theblissfulstation.com",
+              "image": "https://www.theblissfulstation.com/assets/logo.webp",
+              "@id": "https://www.theblissfulstation.com",
+              "url": "https://www.theblissfulstation.com",
               "telephone": "+919793743769",
               "priceRange": "$$",
               "address": {

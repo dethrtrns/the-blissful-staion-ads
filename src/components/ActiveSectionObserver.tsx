@@ -14,11 +14,11 @@ export function ActiveSectionObserver() {
             const id = entry.target.id;
             
             if (id === "hero") {
-              // Clear hash if we are back at the top
-              window.history.replaceState(null, "", window.location.pathname);
+              // Clear hash if we are back at the top but preserve query params (e.g. gclid)
+              window.history.replaceState(null, "", window.location.pathname + window.location.search);
             } else {
-              // Set hash to section ID silently
-              window.history.replaceState(null, "", `#${id}`);
+              // Set hash to section ID silently but preserve query params
+              window.history.replaceState(null, "", window.location.pathname + window.location.search + `#${id}`);
             }
           }
         });
